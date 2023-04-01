@@ -3,6 +3,7 @@
 :root{
     --textAlignValue: center;
     --flexBoxHeight:100vh;
+    --textSize: ;
 }
 
 * {
@@ -18,11 +19,25 @@ header {
     margin-left:25px;
 }
 
+.content{
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: space-between;
+}
+
+.content h1{
+    font-size: 200%;
+}
+
+.content p{
+    font-size: 25px;
+}
+
 .high-scores {
     height: var(--flexBoxHeight);
     width: 20vw;
     text-align: var(--textAlignValue);
-    color: purple;
 }
 
 .quiz {
@@ -46,25 +61,22 @@ header {
 }
 
 .quiz button:hover{
-    background-color: #22007C;
+    background-color: #0D00A4;
     cursor: pointer;
+    box-shadow: 0px 0px 10px white inset;
+    transition: box-shadow  0.5s;
+    transition: background-color  0.5s;
+}
+
+.quiz p{
+    font-style: italic;
+    color: #999999;
 }
 
 .timer {
     height: var(--flexBoxHeight);
     width: 20vw;
     text-align: var(--textAlignValue);
-}
-
-.content{
-    display: flex;
-    margin-right: auto;
-    margin-left: auto;
-    justify-content: space-between;
-}
-
-.content h1{
-    font-size: 200%;
 }
 
 footer{
@@ -82,7 +94,16 @@ footer{
     font-size: 20px;
 }
 
-
+/* REMEMBER TO REMOVE ONCE DONE */
+/* REMEMBER TO REMOVE ONCE DONE */
+/* REMEMBER TO REMOVE ONCE DONE */
+/* REMEMBER TO REMOVE ONCE DONE */
+/* REMEMBER TO REMOVE ONCE DONE */
 body section{
     border: 1px solid white;
 }
+/* REMEMBER TO REMOVE ONCE DONE */
+/* REMEMBER TO REMOVE ONCE DONE */
+/* REMEMBER TO REMOVE ONCE DONE */
+/* REMEMBER TO REMOVE ONCE DONE */
+/* REMEMBER TO REMOVE ONCE DONE */
