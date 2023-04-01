@@ -1,0 +1,50 @@
+:root{
+    --textAlignValue: center;
+    --flexBoxHeight:100vh;
+}
+
+* {
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    margin-right:25px;
+    margin-left:25px;
+}
+
+.high-scores {
+    height: var(--flexBoxHeight);
+    width: 20vw;
+    text-align: var(--textAlignValue);
+}
+
+.quiz {
+    height: var(--flexBoxHeight);
+    width: 50vw;
+    text-align: var(--textAlignValue);
+}
+
+.timer {
+    height: var(--flexBoxHeight);
+    width: 20vw;
+    text-align: var(--textAlignValue);
+}
+
+.content{
+    display: flex;
+    margin-right: auto;
+    margin-left: auto;
+    justify-content: space-between;
+}
+
+.content h1{
+    font-size: 200%;
+}
+
+body section{
+    border: 1px solid white;
+}
