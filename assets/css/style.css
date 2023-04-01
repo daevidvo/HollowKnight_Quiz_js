@@ -1,10 +1,12 @@
+/* Color palette: #02010A #04052E #140152 #22007C #0D00A4 */
+
 :root{
     --textAlignValue: center;
     --flexBoxHeight:100vh;
 }
 
 * {
-    background-color: black;
+    background-color: #02010A;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -20,12 +22,32 @@ header {
     height: var(--flexBoxHeight);
     width: 20vw;
     text-align: var(--textAlignValue);
+    color: purple;
 }
 
 .quiz {
     height: var(--flexBoxHeight);
     width: 50vw;
     text-align: var(--textAlignValue);
+}
+
+.quiz h2{
+    font-style: italic;
+}
+
+.quiz button{
+    border: 2px solid white;
+    border-radius: 10px;
+    width: 30vw;
+    height: 5vw;
+    margin: 10px;
+    font-size: 120%;
+    background-color: #140152;
+}
+
+.quiz button:hover{
+    background-color: #22007C;
+    cursor: pointer;
 }
 
 .timer {
@@ -44,6 +66,22 @@ header {
 .content h1{
     font-size: 200%;
 }
+
+footer{
+    text-align: var(--textAlignValue);
+}
+
+.links {
+    display: flex;
+    gap: 50px;
+    justify-content: center;
+}
+
+.links a{
+    text-decoration: none;
+    font-size: 20px;
+}
+
 
 body section{
     border: 1px solid white;
