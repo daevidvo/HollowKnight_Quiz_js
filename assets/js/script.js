@@ -19,6 +19,8 @@ var timerCount = document.querySelector(".timer").children[1];
 var rightOrWrongText = document.querySelector(".quiz").children[13];
 var hrLine = document.querySelector(".quiz").children[12];
 var formSubmission = document.querySelector("form")
+var highScores = document.querySelector(".high-scores")
+var userName = document.createElement("p")
 var correctAnswer
 var timer
 var count
@@ -230,12 +232,13 @@ function restartGame() {
     playAgainButton.removeEventListener("click", restartGame)
 }
 
-
-
 function saveHighScores(e) {
     e.preventDefault();
     localStorage.setItem("name", document.querySelector("#highScoreInput").value)
     console.log("testing")
+
+    userName.textContent = localStorage.getItem("name") + " - " + count
+    highScores.appendChild(userName)
 }
 
 function gameOver() {
