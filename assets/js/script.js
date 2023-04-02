@@ -25,6 +25,7 @@ var correctAnswer
 var timer
 var count
 
+
 startButton.addEventListener("click", startGame);
 
 function startGame() {
@@ -232,14 +233,24 @@ function restartGame() {
     playAgainButton.removeEventListener("click", restartGame)
 }
 
-function saveHighScores(e) {
-    e.preventDefault();
-    localStorage.setItem("name", document.querySelector("#highScoreInput").value)
-    console.log("testing")
+function nameTranslate() {
 
-    userName.textContent = localStorage.getItem("name") + " - " + count
+    console.log("testing")
+    let translateArr = JSON.parse(localStorage.getItem("name"))
+    if (translateArr === null) {
+        return;
+    }
+    userName.textContent = translateArr[0] + " - " + translateArr[1]
     highScores.appendChild(userName)
 }
+
+function saveHighScores(e) {
+    e.preventDefault();
+    localStorage.setItem("name", JSON.stringify([document.querySelector("#highScoreInput").value, count]))
+    nameTranslate();
+}
+
+nameTranslate();
 
 function gameOver() {
     console.log("gameover")
