@@ -80,6 +80,10 @@ header {
     transition: background-color  0.5s;
 }
 
+textarea {
+    resize: none;
+}
+
 .gameButton{
     display: none;
 }

@@ -189,5 +189,14 @@ function q4buttonText() {
 function gameOver() {
     console.log("gameover")
     timerCount.textContent = "Game Over"
+
+    clearInterval(timer)
+
+    for (let x=0;x<=4;x=x+1) {
+        showGameButtons.setAttribute("style", "display:none;")
+        showGameButtons = document.querySelector(`#gameButton${x}`)
+    }
+
+    questionText.textContent = "Game Over!"
 }
 
