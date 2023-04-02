@@ -56,8 +56,37 @@ header {
     margin-left: auto;
 }
 
+.quiz form{
+    background-color: #22007C;
+    width: 20vw;
+    height: 40px;
+    margin-right: auto;
+    margin-left: auto;
+    border: 2px white solid;
+    border-radius: 5px;
+    display: none;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.quiz label{
+    background-color: #22007C;
+}
+
+.quiz input{
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    
+
+}
+
 .quiz p {
     display: none;
+}
+
+.quiz hr {
+    display:none;
 }
 
 .quiz button{
@@ -78,6 +107,11 @@ header {
     box-shadow: 0px 0px 20px white;
     transition: box-shadow  0.5s;
     transition: background-color  0.5s;
+}
+
+.quiz textarea {
+    width: 5vw;
+    height: 20px;
 }
 
 textarea {
@@ -119,9 +153,9 @@ footer{
 /* REMEMBER TO REMOVE ONCE DONE */
 /* REMEMBER TO REMOVE ONCE DONE */
 /* REMEMBER TO REMOVE ONCE DONE */
-body section{
+/* body section{
     border: 1px solid white;
-}
+} */
 /* REMEMBER TO REMOVE ONCE DONE */
 /* REMEMBER TO REMOVE ONCE DONE */
 /* REMEMBER TO REMOVE ONCE DONE */
