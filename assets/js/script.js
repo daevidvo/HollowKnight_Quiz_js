@@ -219,6 +219,15 @@ function restartGame() {
     formSubmission.setAttribute("style", "display:none;")
     hrLine.setAttribute("style", "display:none;");
     rightOrWrongText.textContent = "";
+
+    for (let x=0;x<4;x=x+1) {
+        showGameButtons = document.querySelector(`#gameButton${x}`)
+        showGameButtons.removeEventListener("click", q4AnswerFunc)
+    }
+
+    startGame();
+    let playAgainButton = gameButton2
+    playAgainButton.removeEventListener("click", restartGame)
 }
 
 function gameOver() {
@@ -227,7 +236,7 @@ function gameOver() {
 
     gameButton2.removeEventListener("click", q4AnswerFunc)
     let playAgainButton = gameButton2
-    playAgainButton.addEventListener("click", startGame)
+    playAgainButton.addEventListener("click", restartGame)
 
     playAgainButton.textContent = "Play Again?"
 
