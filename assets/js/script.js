@@ -230,6 +230,14 @@ function restartGame() {
     playAgainButton.removeEventListener("click", restartGame)
 }
 
+
+
+function saveHighScores(e) {
+    e.preventDefault();
+    localStorage.setItem("name", document.querySelector("#highScoreInput").value)
+    console.log("testing")
+}
+
 function gameOver() {
     console.log("gameover")
     timerCount.textContent = "Game Over"
@@ -241,6 +249,7 @@ function gameOver() {
     playAgainButton.textContent = "Play Again?"
 
     clearInterval(timer)
+    console.log(count)
 
     for (let x=0;x<=2;x=x+1) {
         showGameButtons.setAttribute("style", "display:none;")
@@ -254,6 +263,7 @@ function gameOver() {
     rightOrWrongText.textContent = 'Thank You for Playing!'
 
     formSubmission.setAttribute("style", "display:flex;")
+    formSubmission.addEventListener("submit", saveHighScores)
 
 }
 
