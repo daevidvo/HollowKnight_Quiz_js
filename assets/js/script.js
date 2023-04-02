@@ -10,14 +10,16 @@
 var startButton = document.querySelector(".startButton");
 var charmsImg = document.querySelector(".quiz").children[1];
 var showGameButtons = document.querySelector("#gameButton0"); //must do this because if we used gameButton0, then it wouldn't allow us to change .textContent for the buttons later on
-var userButton = document.querySelector(".gameButton")
 var gameButton0 = document.querySelector("#gameButton0");
 var gameButton1 = document.querySelector("#gameButton1");
 var gameButton2 = document.querySelector("#gameButton2");
 var gameButton3 = document.querySelector("#gameButton3");
 var questionText = document.querySelector(".quiz").children[0];
 var timerCount = document.querySelector(".timer").children[1];
-var rightOrWrongText = document.querySelector(".quiz").children[12]
+var rightOrWrongText = document.querySelector(".quiz").children[13];
+var hrLine = document.querySelector(".quiz").children[12];
+var formSubmission = document.querySelector("form")
+var correctAnswer
 var timer
 var count
 
@@ -64,6 +66,21 @@ function rightAnswerFunc() {
     rightOrWrongText.textContent = "Correct!"
 }
 
+
+function q1AnswerFunc(e) {
+    if (e.currentTarget === correctAnswer) {
+        console.log("correct answer")
+        rightAnswerFunc();
+        question2();
+        hrLine.setAttribute("style", "display:inherit;")
+    } else {
+        console.log("wrong answer")
+        wrongAnswerFunc();
+        question2();
+        hrLine.setAttribute("style", "display:inherit;")
+    }
+}
+
 function question1() {
     questionText.textContent = "What does the Fragile Strength charm do?";
 
@@ -72,19 +89,11 @@ function question1() {
 
     q1buttonText();
 
+    correctAnswer = gameButton2
+
     for (let x=0;x<4;x=x+1) {
         showGameButtons = document.querySelector(`#gameButton${x}`) //changes current gameButton based on the iteration of the for loop
-        showGameButtons.addEventListener("click", function (e) { //adds event listeners to the current gameButton
-            if (e.currentTarget === gameButton2) {
-                console.log("correct answer")
-                rightAnswerFunc();
-                question2();
-            } else {
-                console.log("wrong answer")
-                wrongAnswerFunc();
-
-            }
-        })
+        showGameButtons.addEventListener("click", q1AnswerFunc)
     }
 
 }
@@ -96,25 +105,30 @@ function q1buttonText() {
     gameButton3.textContent = "Downloads SilkSong";
 }
 
+function q2AnswerFunc(e) {
+    if (e.currentTarget === correctAnswer) {
+        console.log("correct answer")
+        rightAnswerFunc();
+        question3();
+    } else {
+        console.log("wrong answer")
+        wrongAnswerFunc();
+        question3();
+    }
+}
+
 function question2() {
     questionText.textContent = "What does the Fragile Greed charm do?";
     charmsImg.setAttribute("src", "https://static.wikia.nocookie.net/hollowknight/images/b/b6/Fragile_Greed.png/revision/latest?cb=20180923025659")
 
     q2buttonText();
 
+    correctAnswer = gameButton0
+
     for (let x=0;x<4;x=x+1) {
         showGameButtons = document.querySelector(`#gameButton${x}`) //changes current gameButton based on the iteration of the for loop
-        showGameButtons.addEventListener("click", function (e) { //adds event listeners to the current gameButton
-            if (e.currentTarget === gameButton0) {
-                console.log("correct answer")
-                rightAnswerFunc();
-                question3();
-            } else {
-                console.log("wrong answer")
-                wrongAnswerFunc();
-
-            }
-        })
+        showGameButtons.removeEventListener("click", q1AnswerFunc)
+        showGameButtons.addEventListener("click", q2AnswerFunc)
     }
 
 }
@@ -126,24 +140,30 @@ function q2buttonText() {
     gameButton3.textContent = "Makes Soul Stones Shiny";
 }
 
+function q3AnswerFunc(e) {
+    if (e.currentTarget === correctAnswer) {
+        console.log("correct answer")
+        rightAnswerFunc();
+        question4();
+    } else {
+        console.log("wrong answer")
+        wrongAnswerFunc();
+        question4();
+    }
+}
+
 function question3() {
     questionText.textContent = "What does the Dream Wielder charm do?";
     charmsImg.setAttribute("src", "https://static.wikia.nocookie.net/hollowknight/images/9/94/Dream_Wielder.png/revision/latest?cb=20180909170602")
 
     q3buttonText();
 
+    correctAnswer = gameButton3
+
     for (let x=0;x<4;x=x+1) {
         showGameButtons = document.querySelector(`#gameButton${x}`) //changes current gameButton based on the iteration of the for loop
-        showGameButtons.addEventListener("click", function (e) { //adds event listeners to the current gameButton
-            if (e.currentTarget === gameButton3) {
-                console.log("correct answer")
-                rightAnswerFunc();
-                question4();
-            } else {
-                console.log("wrong answer")
-                wrongAnswerFunc();
-            }
-        })
+        showGameButtons.removeEventListener("click", q2AnswerFunc)
+        showGameButtons.addEventListener("click", q3AnswerFunc)
     }
 
 }
@@ -155,6 +175,18 @@ function q3buttonText() {
     gameButton3.textContent = "Gives the Player a Dream Nail";
 }
 
+function q4AnswerFunc(e) {
+    if (e.currentTarget === correctAnswer) {
+        console.log("correct answer")
+        rightAnswerFunc();
+        gameOver();
+    } else {
+        console.log("wrong answer")
+        wrongAnswerFunc();
+        gameOver();
+    }
+}
+
 function question4() {
     questionText.textContent = "What does the Wayward Compass charm do?";
     charmsImg.setAttribute("src", "https://static.wikia.nocookie.net/hollowknight/images/7/7d/Wayward_Compass.png/revision/latest?cb=20180909165457")
@@ -162,19 +194,12 @@ function question4() {
 
     q4buttonText();
 
+    correctAnswer = gameButton2
+
     for (let x=0;x<4;x=x+1) {
         showGameButtons = document.querySelector(`#gameButton${x}`) //changes current gameButton based on the iteration of the for loop
-        showGameButtons.addEventListener("click", function (e) { //adds event listeners to the current gameButton
-            if (e.currentTarget === gameButton2) {
-                console.log("correct answer")
-                rightAnswerFunc();
-                gameOver();
-            } else {
-                console.log("wrong answer")
-                wrongAnswerFunc();
-
-            }
-        })
+        showGameButtons.removeEventListener("click", q3AnswerFunc)
+        showGameButtons.addEventListener("click", q4AnswerFunc)
     }
 
 }
@@ -186,17 +211,40 @@ function q4buttonText() {
     gameButton3.textContent = "Teleports the Player to Godhome";
 }
 
+function playAgainFunc() {
+    startGame();
+}
+
+function restartGame() {
+    formSubmission.setAttribute("style", "display:none;")
+    hrLine.setAttribute("style", "display:none;");
+    rightOrWrongText.textContent = "";
+}
+
 function gameOver() {
     console.log("gameover")
     timerCount.textContent = "Game Over"
 
+    gameButton2.removeEventListener("click", q4AnswerFunc)
+    let playAgainButton = gameButton2
+    playAgainButton.addEventListener("click", startGame)
+
+    playAgainButton.textContent = "Play Again?"
+
     clearInterval(timer)
 
-    for (let x=0;x<=4;x=x+1) {
+    for (let x=0;x<=2;x=x+1) {
         showGameButtons.setAttribute("style", "display:none;")
         showGameButtons = document.querySelector(`#gameButton${x}`)
     }
 
+    charmsImg.setAttribute("src", "https://media.tenor.com/mAG1m_7eazsAAAAd/hollow-knight-dance.gif")
+
     questionText.textContent = "Game Over!"
+    hrLine.setAttribute("style", "display:none;")
+    rightOrWrongText.textContent = 'Thank You for Playing!'
+
+    formSubmission.setAttribute("style", "display:flex;")
+
 }
 
