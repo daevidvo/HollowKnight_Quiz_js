@@ -7,21 +7,120 @@
 // - wins losses tracked through local storage and increment both on either event
 // - 
 
-
 var startButton = document.querySelector(".startButton");
-var gameButton = document.querySelector(".gameButton")
-var gameButtonX = document.querySelector("#gameButton0")
-
+var charmsImg = document.querySelector(".quiz").children[1];
+var showGameButtons = document.querySelector("#gameButton0"); //must do this because if we used gameButton0, then it wouldn't allow us to change .textContent for the buttons later on
+var userButton = document.querySelector(".gameButton")
+var gameButton0 = document.querySelector("#gameButton0");
+var gameButton1 = document.querySelector("#gameButton1");
+var gameButton2 = document.querySelector("#gameButton2");
+var gameButton3 = document.querySelector("#gameButton3");
+var questionText = document.querySelector(".quiz").children[0];
+var timerCount = document.querySelector(".timer").children[1];
+var correctAnswer
+var timer
+var count
 
 startButton.addEventListener("click", startGame);
 
 function startGame() {
-    console.log()
-    
     startButton.setAttribute("style", "display:none;");
-    for (let x=0;x<3;x=x+1) {
-        gameButtonX.setAttribute("style", "display:initial;")
-        gameButtonX = document.querySelector(`#gameButton${x}`)
-        
+
+    for (let x=0;x<=4;x=x+1) {
+        showGameButtons.setAttribute("style", "display:initial;")
+        showGameButtons = document.querySelector(`#gameButton${x}`)
     }
+
+    question1();
+    timerFunc();
+};
+
+function timerFunc() {
+    count = 30
+    timerCount.textContent = count
+    timer = setInterval(() => {
+        count=count-1
+        timerCount.textContent = count
+
+        if (count === 0) {
+            clearInterval(timer);
+            gameOver();
+        }
+    }, 1000);
 }
+
+function wrongAnswer() {
+    count-5
+    timerCount.textContent = count;
+    console.log(count)
+}
+
+function question1() {
+    questionText.textContent = "What does the Fragile Strength charm do?";
+
+    charmsImg.setAttribute("style", "display:block;")
+    charmsImg.setAttribute("src", "https://static.wikia.nocookie.net/hollowknight/images/7/7b/Fragile_Strength.png/revision/latest?cb=20180923025436")
+
+    q1buttonText();
+
+    correctAnswer = gameButton2
+
+    for (let x=0;x<4;x=x+1) {
+        showGameButtons = document.querySelector(`#gameButton${x}`)
+        showGameButtons.addEventListener("click", function (e) {
+            if (e.currentTarget === correctAnswer) {
+                console.log("correct answer")
+            } else {
+                console.log("wrong answer")
+                console.log(e.currentTarget)
+                wrongAnswer();
+            }
+        })
+    }
+
+}
+
+function q1buttonText() {
+    gameButton0.textContent = "Decreases Nail Damage by 50%";
+    gameButton1.textContent = "Instantly Explodes The Vessel";
+    gameButton2.textContent = "Increases Nail Damage by 50%";
+    gameButton3.textContent = "Downloads SilkSong";
+}
+
+function question2() {
+
+}
+
+function q2buttonText() {
+    gameButton0.textContent = "Increases Amount of Geo Dropped by Enemies";
+    gameButton1.textContent = "Cornifer's Map Prices are Inflated";
+    gameButton2.textContent = "Teleport the Player to Fungal Wastes";
+    gameButton3.textContent = "Makes Soul Stones Shiny";
+}
+
+function question3() {
+    
+}
+
+function q3buttonText() {
+    gameButton0.textContent = "Sends Player to Colosseum of Fools";
+    gameButton1.textContent = "Increases Infection Rate";
+    gameButton2.textContent = "Summons a Pet";
+    gameButton3.textContent = "Gives the Player a Dream Nail";
+}
+
+function question4() {
+    
+}
+
+function q4buttonText() {
+    gameButton0.textContent = "Points Towards Stag Stations";
+    gameButton1.textContent = "Shows Location of Grimm Troupe";
+    gameButton2.textContent = "The Strongest Charm in the Game";
+    gameButton3.textContent = "Teleports the Player to Godhome";
+}
+
+function gameOver() {
+
+}
+
