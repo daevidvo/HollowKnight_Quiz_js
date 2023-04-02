@@ -1,12 +1,3 @@
-// -global event listener (for the keydowns)
-// - setInterval for the timer of the game
-// - button to start the game and an event listener for that button (on click)
-// 	- call on a function that display words
-// 	- call on 
-// - global event listener to iterate through the word and if that letter appears on the keydown, change the displayed "_" to letter, 
-// - wins losses tracked through local storage and increment both on either event
-// - 
-
 var startButton = document.querySelector(".startButton");
 var charmsImg = document.querySelector(".quiz").children[1];
 var showGameButtons = document.querySelector("#gameButton0"); //must do this because if we used gameButton0, then it wouldn't allow us to change .textContent for the buttons later on
@@ -191,7 +182,7 @@ function q4AnswerFunc(e) {
 }
 
 function question4() {
-    questionText.textContent = "What does the Wayward Compass charm do?";
+    questionText.textContent = "What is Wayward Compass charm?";
     charmsImg.setAttribute("src", "https://static.wikia.nocookie.net/hollowknight/images/7/7d/Wayward_Compass.png/revision/latest?cb=20180909165457")
     
 
@@ -280,4 +271,3 @@ function gameOver() {
     formSubmission.addEventListener("submit", saveHighScores)
 
 }
-
