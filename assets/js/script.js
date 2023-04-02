@@ -17,7 +17,7 @@ var gameButton2 = document.querySelector("#gameButton2");
 var gameButton3 = document.querySelector("#gameButton3");
 var questionText = document.querySelector(".quiz").children[0];
 var timerCount = document.querySelector(".timer").children[1];
-var correctAnswer
+var rightOrWrongText = document.querySelector(".quiz").children[12]
 var timer
 var count
 
@@ -42,17 +42,26 @@ function timerFunc() {
         count=count-1
         timerCount.textContent = count
 
-        if (count === 0) {
+        if (count <= 0) {
             clearInterval(timer);
             gameOver();
         }
     }, 1000);
 }
 
-function wrongAnswer() {
-    count-5
+function wrongAnswerFunc() {
+    count = count-5
+    if (count<0) {
+        gameOver();
+    }
     timerCount.textContent = count;
-    console.log(count)
+    rightOrWrongText.setAttribute("style", "display:initial;")
+    rightOrWrongText.textContent = "Whoops! Not so smart today huh?"
+}
+
+function rightAnswerFunc() {
+    rightOrWrongText.setAttribute("style", "display:initial;")
+    rightOrWrongText.textContent = "Correct!"
 }
 
 function question1() {
@@ -63,17 +72,17 @@ function question1() {
 
     q1buttonText();
 
-    correctAnswer = gameButton2
-
     for (let x=0;x<4;x=x+1) {
-        showGameButtons = document.querySelector(`#gameButton${x}`)
-        showGameButtons.addEventListener("click", function (e) {
-            if (e.currentTarget === correctAnswer) {
+        showGameButtons = document.querySelector(`#gameButton${x}`) //changes current gameButton based on the iteration of the for loop
+        showGameButtons.addEventListener("click", function (e) { //adds event listeners to the current gameButton
+            if (e.currentTarget === gameButton2) {
                 console.log("correct answer")
+                rightAnswerFunc();
+                question2();
             } else {
                 console.log("wrong answer")
-                console.log(e.currentTarget)
-                wrongAnswer();
+                wrongAnswerFunc();
+
             }
         })
     }
@@ -88,6 +97,25 @@ function q1buttonText() {
 }
 
 function question2() {
+    questionText.textContent = "What does the Fragile Greed charm do?";
+    charmsImg.setAttribute("src", "https://static.wikia.nocookie.net/hollowknight/images/b/b6/Fragile_Greed.png/revision/latest?cb=20180923025659")
+
+    q2buttonText();
+
+    for (let x=0;x<4;x=x+1) {
+        showGameButtons = document.querySelector(`#gameButton${x}`) //changes current gameButton based on the iteration of the for loop
+        showGameButtons.addEventListener("click", function (e) { //adds event listeners to the current gameButton
+            if (e.currentTarget === gameButton0) {
+                console.log("correct answer")
+                rightAnswerFunc();
+                question3();
+            } else {
+                console.log("wrong answer")
+                wrongAnswerFunc();
+
+            }
+        })
+    }
 
 }
 
@@ -99,7 +127,25 @@ function q2buttonText() {
 }
 
 function question3() {
-    
+    questionText.textContent = "What does the Dream Wielder charm do?";
+    charmsImg.setAttribute("src", "https://static.wikia.nocookie.net/hollowknight/images/9/94/Dream_Wielder.png/revision/latest?cb=20180909170602")
+
+    q3buttonText();
+
+    for (let x=0;x<4;x=x+1) {
+        showGameButtons = document.querySelector(`#gameButton${x}`) //changes current gameButton based on the iteration of the for loop
+        showGameButtons.addEventListener("click", function (e) { //adds event listeners to the current gameButton
+            if (e.currentTarget === gameButton3) {
+                console.log("correct answer")
+                rightAnswerFunc();
+                question4();
+            } else {
+                console.log("wrong answer")
+                wrongAnswerFunc();
+            }
+        })
+    }
+
 }
 
 function q3buttonText() {
@@ -110,7 +156,27 @@ function q3buttonText() {
 }
 
 function question4() {
+    questionText.textContent = "What does the Wayward Compass charm do?";
+    charmsImg.setAttribute("src", "https://static.wikia.nocookie.net/hollowknight/images/7/7d/Wayward_Compass.png/revision/latest?cb=20180909165457")
     
+
+    q4buttonText();
+
+    for (let x=0;x<4;x=x+1) {
+        showGameButtons = document.querySelector(`#gameButton${x}`) //changes current gameButton based on the iteration of the for loop
+        showGameButtons.addEventListener("click", function (e) { //adds event listeners to the current gameButton
+            if (e.currentTarget === gameButton2) {
+                console.log("correct answer")
+                rightAnswerFunc();
+                gameOver();
+            } else {
+                console.log("wrong answer")
+                wrongAnswerFunc();
+
+            }
+        })
+    }
+
 }
 
 function q4buttonText() {
@@ -121,6 +187,7 @@ function q4buttonText() {
 }
 
 function gameOver() {
-
+    console.log("gameover")
+    timerCount.textContent = "Game Over"
 }
 
