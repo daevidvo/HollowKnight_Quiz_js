@@ -2,8 +2,7 @@
 
 :root{
     --textAlignValue: center;
-    --flexBoxHeight:100vh;
-    --textSize: ;
+    --flexBoxHeight:90vh;
 }
 
 * {
@@ -63,7 +62,7 @@ header {
     margin-right: auto;
     margin-left: auto;
     border: 2px white solid;
-    border-radius: 5px;
+    border-radius: 10px;
     display: none;
     align-items: center;
     justify-content: space-evenly;
@@ -77,8 +76,6 @@ header {
     background-color: white;
     color: black;
     font-weight: bold;
-    
-
 }
 
 .quiz p {
@@ -97,7 +94,6 @@ header {
     margin: 10px;
     font-size: 120%;
     background-color: #140152;
-
 }
 
 .quiz button:hover{
@@ -147,17 +143,3 @@ footer{
     text-decoration: none;
     font-size: 20px;
 }
-
-/* REMEMBER TO REMOVE ONCE DONE */
-/* REMEMBER TO REMOVE ONCE DONE */
-/* REMEMBER TO REMOVE ONCE DONE */
-/* REMEMBER TO REMOVE ONCE DONE */
-/* REMEMBER TO REMOVE ONCE DONE */
-/* body section{
-    border: 1px solid white;
-} */
-/* REMEMBER TO REMOVE ONCE DONE */
-/* REMEMBER TO REMOVE ONCE DONE */
-/* REMEMBER TO REMOVE ONCE DONE */
-/* REMEMBER TO REMOVE ONCE DONE */
-/* REMEMBER TO REMOVE ONCE DONE */
