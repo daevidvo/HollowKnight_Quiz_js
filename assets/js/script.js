@@ -76,7 +76,7 @@ function question1() {
     questionText.textContent = "What does the Fragile Strength charm do?"; //sets the text for the question
 
     charmsImg.setAttribute("style", "display:block;"); //makes the charms img visible
-    charmsImg.setAttribute("src", "https://static.wikia.nocookie.net/hollowknight/images/7/7b/Fragile_Strength.png/revision/latest?cb=20180923025436"); //changes the src of the img tag above
+    charmsImg.setAttribute("src", "./assets/images/Fragile_Strength.webp"); //changes the src of the img tag above
 
     q1buttonText(); //changes the button text to correspond with question#
 
@@ -107,7 +107,7 @@ function q2AnswerFunc(e) {
 
 function question2() {
     questionText.textContent = "What does the Fragile Greed charm do?";
-    charmsImg.setAttribute("src", "https://static.wikia.nocookie.net/hollowknight/images/b/b6/Fragile_Greed.png/revision/latest?cb=20180923025659"); //changes the src of the img to the corresponding charm
+    charmsImg.setAttribute("src", "./assets/images/Fragile_Greed.webp"); //changes the src of the img to the corresponding charm
 
     q2buttonText();
 
@@ -139,7 +139,7 @@ function q3AnswerFunc(e) {
 
 function question3() {
     questionText.textContent = "What does the Dream Wielder charm do?";
-    charmsImg.setAttribute("src", "https://static.wikia.nocookie.net/hollowknight/images/9/94/Dream_Wielder.png/revision/latest?cb=20180909170602");
+    charmsImg.setAttribute("src", "./assets/images/Dream_Wielder.webp");
 
     q3buttonText();
 
@@ -171,7 +171,7 @@ function q4AnswerFunc(e) {
 
 function question4() {
     questionText.textContent = "What is Wayward Compass charm?";
-    charmsImg.setAttribute("src", "https://static.wikia.nocookie.net/hollowknight/images/7/7d/Wayward_Compass.png/revision/latest?cb=20180909165457");
+    charmsImg.setAttribute("src", "./assets/images/Wayward_Compass.webp");
     
 
     q4buttonText();
@@ -241,7 +241,7 @@ function gameOver() { //function that ends the game
         showGameButtons = document.querySelector(`#gameButton${x}`);
     };
 
-    charmsImg.setAttribute("src", "https://media.tenor.com/mAG1m_7eazsAAAAd/hollow-knight-dance.gif"); //changes the img
+    charmsImg.setAttribute("src", "./assets/images/hollow-knight-dance.gif"); //changes the img
 
     questionText.textContent = "Game Over!";
     rightOrWrongText.textContent = 'Thank You for Playing!';
